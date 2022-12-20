@@ -32,6 +32,8 @@ export default class Iterator {
       }
       if (typeof nextOp.delete === 'number') {
         return { delete: length };
+      } else if (offset === 0 && length === opLength) {
+        return nextOp;
       } else {
         const retOp: Op = {};
         if (nextOp.attributes) {

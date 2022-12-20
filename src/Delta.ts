@@ -266,7 +266,7 @@ class Delta {
         const thisOp = thisIter.next(length);
         const otherOp = otherIter.next(length);
         if (otherOp.retain) {
-          const newOp: Op = {};
+          let newOp: Op = {};
           if (typeof thisOp.retain === 'number') {
             newOp.retain =
               typeof otherOp.retain === 'number' ? length : otherOp.retain;
@@ -301,6 +301,10 @@ class Delta {
           );
           if (attributes) {
             newOp.attributes = attributes;
+          }
+          
+          if ('insert' in newOp && newOp.insert === thisOp.insert && newOp.attributes === thisOp.attributes) {
+            newOp = thisOp;
           }
           delta.push(newOp);
 

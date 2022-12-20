@@ -1,6 +1,6 @@
 {
-  "name": "quill-delta",
-  "version": "5.0.0",
+  "name": "@hackwaly/delta",
+  "version": "1.0.1",
   "description": "Format for representing rich text documents and changes.",
   "author": "Jason Chen <jhchen7@gmail.com>",
   "homepage": "https://github.com/quilljs/delta",
